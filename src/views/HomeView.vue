@@ -1,13 +1,20 @@
 <script>
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
+
 export default {
+  components: {
+    StreamBarcodeReader,
+  },
   mounted() {
     this.startCamera();
   },
   methods: {
     onDecode (result) { 
       console.log(result) 
+    },
+    onLoaded () {
+      console.log("Loaded!")
     },
     async startCamera() {
       try {
@@ -25,8 +32,9 @@ export default {
 <template>
   <main>
     <h1>Home</h1>
-    <video ref="videoElement" autoplay id="VideoStream"></video>
-    <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
+    <video ref="videoElement" autoplay id="VideoStream">
+      <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
+    </video>
   </main>
 </template>
 
