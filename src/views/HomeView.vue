@@ -1,37 +1,30 @@
 <script>
 import { StreamBarcodeReader } from "vue-barcode-reader";
 
-
 export default {
   components: {
     StreamBarcodeReader,
   },
-  mounted() {
-    
+  data(){
+    return {
+      code: 0
+    }
   },
   methods: {
     onDecode (result) { 
       console.log(result) 
-    },
-    onLoaded () {
-      console.log("Loaded!")
+      this.code = result
     },
   },
 };
 </script>
 
-
 <template>
-  <main>
-    <h1>Home</h1>
-
-      <StreamBarcodeReader @decode="onDecode" @loaded="onLoaded"></StreamBarcodeReader>
-
-  </main>
+  <header>
+    <h1>Barcode Reader App</h1>
+  </header>
+  <body>
+      <StreamBarcodeReader id="VideoStream" @decode="onDecode"></StreamBarcodeReader>
+      <p>The Barcode is: {{ code }}</p>
+  </body>
 </template>
-
-<style>
-#VideoStream {
-  transform: scaleX(-1);
-}
-</style>
