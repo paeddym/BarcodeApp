@@ -8,17 +8,25 @@ export default {
       image: undefined
     }
   },
-/*methods: {
-    showProductInfo () { 
+  props: {
+    currentBarcode: String,
+  },
+methods: {
+    showProductInfo (code) { 
       if(code == 4009228120077){
             this.name = "Krumbach Medium"
-            this.cost = 0.89
+            this.cost = "0,89€"
+      } else if(code == 4337185051937){
+            this.name = "K-Classic Mineralwasser"
+            this.cost = "0,29€"
+      } else {
+        this.name = "Unknown"
+        this.cost = "Unknown"
       }
-    },
-  }, */
+    }, 
+  }, 
   created(){
-  /*  this.showProductInfo(); */
-  console.log("Test")
+    this.showProductInfo(this.currentBarcode);
   }
 };
 </script>

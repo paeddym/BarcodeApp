@@ -1,5 +1,21 @@
-<script setup>
+<script>
 import { RouterLink, RouterView } from 'vue-router'
+import router from './router';
+
+export default {
+  data(){
+    return {
+      barcode: undefined
+    }
+  },
+  methods: { 
+    saveCode(barcode){
+      this.barcode = barcode
+      router.push('productinfo')
+    }
+  }
+};
+
 </script>
 
 <template>
@@ -11,6 +27,5 @@ import { RouterLink, RouterView } from 'vue-router'
       </nav>
     </div>
   </header> 
-
-  <RouterView />
+  <RouterView  v-on:save-barcode="saveCode" :currentBarcode="barcode"/>
 </template>

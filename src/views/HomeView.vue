@@ -3,18 +3,21 @@ import { StreamBarcodeReader } from "vue-barcode-reader";
 import router from "../router";
 
 export default {
+  emits: [
+    'save-barcode'
+  ],
   components: {
     StreamBarcodeReader,
   },
   data(){
     return {
-      code: undefined,
+      barcode: undefined,
     }
   },
   methods: {
     onDecode (result) { 
-      this.code = result
-      router.push('productinfo')
+      this.barcode = result
+      this.$emit('save-barcode', this.barcode)      
     },
   },
 };
