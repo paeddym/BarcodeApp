@@ -14,6 +14,11 @@ p {
   text-align: center;
 }
 
+nav > * {
+  text-decoration: none;
+  color: white;
+}
+
 /*
 
 #VideoStream {
