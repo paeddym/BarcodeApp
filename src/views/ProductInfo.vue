@@ -12,10 +12,13 @@ export default {
     currentBarcode: String,
   },
 methods: {
-    showProductInfo (code) { 
+    showProductInfo (code) {                        //Durch Datenbank ersetzen
       if(code == 4009228120077){
             this.name = "Krumbach Medium"
-            this.cost = "0,89€"
+            this.cost = "0,79€"
+      } else if(code == 4009228120039){
+            this.name = "Krumbach Classic"
+            this.cost = "0.89€"
       } else if(code == 4337185051937){
             this.name = "K-Classic Mineralwasser"
             this.cost = "0,29€"

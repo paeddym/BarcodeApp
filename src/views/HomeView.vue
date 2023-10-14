@@ -1,6 +1,6 @@
 <script>
 import { StreamBarcodeReader } from "vue-barcode-reader";
-import router from "../router";
+import axios from 'axios';
 
 export default {
   emits: [
@@ -17,6 +17,15 @@ export default {
   methods: {
     onDecode (result) { 
       this.barcode = result
+      axios.post('http://localhost:3000/save-barcode', {
+        barcode: this.barcode,
+      })
+      .then(response => {
+        console.log(response.data); // Server response
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
       this.$emit('save-barcode', this.barcode)      
     },
   },

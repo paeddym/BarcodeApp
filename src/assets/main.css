@@ -19,6 +19,18 @@ nav > * {
   color: white;
 }
 
+ul {
+  color: white;
+}
+
+li {
+  color: white;
+}
+
+li > * {
+  color: white;
+}
+
 /*
 
 #VideoStream {
